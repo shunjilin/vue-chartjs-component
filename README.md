@@ -1,4 +1,4 @@
-# vue-chartjs-wrapper
+# chartjs-vue
 
 ## Project setup
 ```
