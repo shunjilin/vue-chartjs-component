@@ -1,4 +1,4 @@
-import { App, inject, InjectionKey } from "vue";
+import { App, inject, InjectionKey } from "vue-demi";
 import { Chart } from "./components/Chart";
 
 export interface VueChartPlugin {

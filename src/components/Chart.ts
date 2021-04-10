@@ -1,4 +1,4 @@
-import { ref, defineComponent, h, PropType, onMounted, watch } from "vue";
+import { ref, defineComponent, h, PropType, onMounted, watch } from "vue-demi";
 import { Chart as Chartjs } from "chart.js";
 import type { ChartType, ChartData, ChartOptions } from "chart.js";
 import cloneDeep from "lodash.clonedeep";

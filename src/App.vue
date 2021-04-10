@@ -7,7 +7,7 @@
 
 <script lang="ts">
 import { Chart, ChartData, ChartOptions, registerables } from "chart.js";
-import { defineComponent, Ref, ref } from "vue";
+import { defineComponent, Ref, ref } from "vue-demi";
 
 // register all controllers, elements, scales and plugins
 // To register only necessary components, see: https://www.chartjs.org/docs/master/getting-started/integration.html#bundlers-webpack-rollup-etc
