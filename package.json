@@ -1,7 +1,7 @@
 {
   "name": "chartjs-vue",
   "version": "0.1.0",
-  "private": true,
+  "description": "reactive, type-safe chartjs component for Vue 2/3",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
