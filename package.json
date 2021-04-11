@@ -1,12 +1,26 @@
 {
   "name": "chartjs-vue",
   "version": "0.1.0",
-  "description": "reactive, type-safe chartjs component for Vue 2/3",
+  "author": "Shunji Lin",
+  "license": "MIT",
+  "description": "chartjs wrapper for Vue 2/3",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shunjilin/chartjs-vue"
+  },
+  "keywords": [
+    "vue",
+    "typescript",
+    "chartjs",
+    "wrapper",
+    "composition api"
+  ],
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "build-package": "vue-cli-service build --target lib --name chartjs-vue ./src/index.ts  && rm ./dist/demo.html"
   },
   "dependencies": {
     "lodash.clonedeep": "^4.5.0",
