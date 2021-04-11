@@ -1,6 +1,6 @@
 {
   "name": "vue-chartjs-component",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "author": "Shunji Lin",
   "license": "MIT",
   "description": "chartjs wrapper for Vue 2/3",
@@ -15,9 +15,12 @@
     "wrapper",
     "composition api"
   ],
-  "main": "dist/vue-chartjs-component.common.js",
+  "main": "dist/vue-chartjs-component.umd.js",
   "files": [
-    "dist/*",
+    "dist/vue-chartjs-component.umd.js",
+    "dist/vue-chartjs-component.umd.map",
+    "dist/vue-chartjs-component.umd.min.js",
+    "src/index.ts",
     "package.json",
     "README.md",
     "index.d.ts"
@@ -27,7 +30,7 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "build-package": "vue-cli-service build --target lib --name vue-chartjs-component ./src/index.ts  && rm ./dist/demo.html"
+    "build-package": "vue-cli-service build --mode production --target lib --name vue-chartjs-component ./src/index.ts  && rm ./dist/demo.html"
   },
   "dependencies": {
     "lodash.clonedeep": "^4.5.0",
