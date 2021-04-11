@@ -13,7 +13,6 @@ declare module "vue-chartjs-component" {
     };
     options: {
       type: PropType<ChartOptions>;
-      required: true;
     };
     height: {
       type: StringConstructor;
