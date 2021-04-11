@@ -1,8 +1,4 @@
-import { createApp } from "vue-demi";
+import { createApp } from "vue";
 import App from "./App.vue";
 
-import { createVueChartjsComponentPlugin } from "./index";
-
-const VueChartPlugin = createVueChartjsComponentPlugin();
-
-createApp(App).use(VueChartPlugin).mount("#app");
+createApp(App).mount("#app");

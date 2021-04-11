@@ -1,5 +1,8 @@
 module.exports = {
-  configureWebpack: {
-    externals: ["@vue/composition-api", "chart.js", "vue"],
-  },
+  configureWebpack:
+    process.env.NODE_ENV === "production"
+      ? {
+          externals: ["@vue/composition-api", "chart.js", "vue"],
+        }
+      : {},
 };

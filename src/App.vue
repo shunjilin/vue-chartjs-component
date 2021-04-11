@@ -7,7 +7,8 @@
 
 <script lang="ts">
 import { Chart, ChartData, ChartOptions, registerables } from "chart.js";
-import { defineComponent, Ref, ref } from "vue-demi";
+import { defineComponent, Ref, ref } from "vue";
+import { Chart as VueChartjsComponent } from "./components/Chart";
 
 // register all controllers, elements, scales and plugins
 // To register only necessary components, see: https://www.chartjs.org/docs/master/getting-started/integration.html#bundlers-webpack-rollup-etc
@@ -15,6 +16,9 @@ Chart.register(...registerables);
 
 export default defineComponent({
   name: "App",
+  components: {
+    VueChartjsComponent,
+  },
   setup() {
     const backgroundColor = [
       "rgba(255, 99, 132, 0.2)",
