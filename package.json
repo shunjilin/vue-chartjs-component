@@ -1,6 +1,6 @@
 {
   "name": "vue-chartjs-component",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "author": "Shunji Lin",
   "license": "MIT",
   "description": "chartjs wrapper for Vue 2/3",

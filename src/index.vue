@@ -1,9 +1,9 @@
 <template>
-  <canvas :ref="cavas" :width="width" :height="height" />
+  <canvas ref="canvas" :width="width" :height="height" />
 </template>
 
 <script lang="ts">
-import { ref, defineComponent, h, PropType, onMounted, watch } from "vue-demi";
+import { ref, defineComponent, PropType, onMounted, watch } from "vue-demi";
 import { Chart as Chartjs } from "chart.js";
 import type { ChartType, ChartData, ChartOptions } from "chart.js";
 import cloneDeep from "lodash.clonedeep";
@@ -60,12 +60,9 @@ export default defineComponent({
       }
     );
 
-    return () =>
-      h("canvas", {
-        ref: canvas,
-        width: props.width,
-        height: props.height,
-      });
+    return {
+      canvas: canvas,
+    };
   },
 });
 </script>
