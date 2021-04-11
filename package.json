@@ -1,6 +1,6 @@
 {
   "name": "vue-chartjs-component",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "author": "Shunji Lin",
   "license": "MIT",
   "description": "chartjs wrapper for Vue 2/3",
@@ -18,8 +18,9 @@
   "main": "dist/vue-chartjs-component.common.js",
   "files": [
     "dist/*",
-    "src/*",
-    "*.json"
+    "package.json",
+    "README.md",
+    "index.d.ts"
   ],
   "scripts": {
     "serve": "vue-cli-service serve",
