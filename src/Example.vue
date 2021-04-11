@@ -1,14 +1,14 @@
 <template>
   <button @click="onClick">Randomize</button>
   <div style="width: 100vw; height: 100vh">
-    <vue-chartjs-component type="bar" :data="data" :options="options" />
+    <chart-component type="bar" :data="data" :options="options" />
   </div>
 </template>
 
 <script lang="ts">
 import { Chart, ChartData, ChartOptions, registerables } from "chart.js";
 import { defineComponent, Ref, ref } from "vue";
-import { VueChartjsComponent } from "./index";
+import ChartComponent from "./index.vue";
 
 // register all controllers, elements, scales and plugins
 // To register only necessary components, see: https://www.chartjs.org/docs/master/getting-started/integration.html#bundlers-webpack-rollup-etc
@@ -17,7 +17,7 @@ Chart.register(...registerables);
 export default defineComponent({
   name: "App",
   components: {
-    VueChartjsComponent,
+    ChartComponent,
   },
   setup() {
     const backgroundColor = [

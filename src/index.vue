@@ -1,9 +1,14 @@
+<template>
+  <canvas :ref="cavas" :width="width" :height="height" />
+</template>
+
+<script lang="ts">
 import { ref, defineComponent, h, PropType, onMounted, watch } from "vue-demi";
 import { Chart as Chartjs } from "chart.js";
 import type { ChartType, ChartData, ChartOptions } from "chart.js";
 import cloneDeep from "lodash.clonedeep";
 
-export const VueChartjsComponent = defineComponent({
+export default defineComponent({
   name: "VueChartjsComponent",
   props: {
     type: {
@@ -16,7 +21,6 @@ export const VueChartjsComponent = defineComponent({
     },
     options: {
       type: Object as PropType<ChartOptions>,
-      required: true,
     },
     height: {
       type: String,
@@ -48,7 +52,9 @@ export const VueChartjsComponent = defineComponent({
         if (chart) {
           const { data, options } = newProps;
           chart.data = data;
-          chart.options = options;
+          if (options) {
+            chart.options = options;
+          }
           chart.update();
         }
       }
@@ -62,3 +68,4 @@ export const VueChartjsComponent = defineComponent({
       });
   },
 });
+</script>

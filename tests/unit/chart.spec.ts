@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import { Chart } from "@/components/Chart";
+import ChartComponent from "../../src/index.vue";
 import { Chart as Chartjs } from "chart.js";
 import { ref } from "@vue/reactivity";
 
@@ -66,7 +66,7 @@ describe("HelloWorld.vue", () => {
     jest.restoreAllMocks();
   });
   it("renders chart on mount", () => {
-    shallowMount(Chart, {
+    shallowMount(ChartComponent, {
       props: DEFAULT_PROPS,
     });
 
@@ -75,7 +75,7 @@ describe("HelloWorld.vue", () => {
 
   it("updates chart when reactive data prop is updated", async () => {
     const data = ref(DEFAULT_PROPS.data);
-    const wrapper = shallowMount(Chart, {
+    const wrapper = shallowMount(ChartComponent, {
       props: {
         ...DEFAULT_PROPS,
         data: data.value,
@@ -114,7 +114,7 @@ describe("HelloWorld.vue", () => {
 
   it("updates chart when reactive options prop is updated", async () => {
     const options = ref(DEFAULT_PROPS.options);
-    const wrapper = shallowMount(Chart, {
+    const wrapper = shallowMount(ChartComponent, {
       props: {
         ...DEFAULT_PROPS,
         options: options.value,
