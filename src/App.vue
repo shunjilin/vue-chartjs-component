@@ -1,7 +1,7 @@
 <template>
   <button @click="onClick">Randomize</button>
   <div style="width: 100vw; height: 100vh">
-    <vue-chart-wrapper type="bar" :data="data" :options="options" />
+    <vue-chartjs-component type="bar" :data="data" :options="options" />
   </div>
 </template>
 

@@ -1,24 +1,25 @@
 import { App, inject, InjectionKey } from "vue-demi";
 import { Chart } from "./components/Chart";
 
-export interface VueChartPlugin {
+export interface VueChartjsComponentPlugin {
   install(app: App): void;
 }
 
-export const VueChartPluginSymbol: InjectionKey<VueChartPlugin> = Symbol();
+export const VueChartjsComponentPluginSymbol: InjectionKey<VueChartjsComponentPlugin> = Symbol();
 
-export function VueChartPlugin(): VueChartPlugin {
-  const VueChartPlugin = inject(VueChartPluginSymbol);
-  if (!VueChartPlugin) throw new Error("No VueChartPlugin provided!!!");
+export function VueChartjsComponentPlugin(): VueChartjsComponentPlugin {
+  const VueChartjsComponentPlugin = inject(VueChartjsComponentPluginSymbol);
+  if (!VueChartjsComponentPlugin)
+    throw new Error("No VueChartjsComponentPlugin provided!!!");
 
-  return VueChartPlugin;
+  return VueChartjsComponentPlugin;
 }
 
-export function createVueChartPlugin(): VueChartPlugin {
-  const plugin: VueChartPlugin = {
+export function createVueChartjsComponentPlugin(): VueChartjsComponentPlugin {
+  const plugin: VueChartjsComponentPlugin = {
     install(app: App) {
-      app.component("vue-chart-wrapper", Chart);
-      app.provide(VueChartPluginSymbol, this);
+      app.component("vue-chartjs-component", Chart);
+      app.provide(VueChartjsComponentPluginSymbol, this);
     },
   };
 

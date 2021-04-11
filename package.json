@@ -1,6 +1,6 @@
 {
   "name": "vue-chartjs-component",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "Shunji Lin",
   "license": "MIT",
   "description": "chartjs wrapper for Vue 2/3",
@@ -26,7 +26,7 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "build-package": "vue-cli-service build --target lib --name chartjs-vue ./src/index.ts  && rm ./dist/demo.html"
+    "build-package": "vue-cli-service build --target lib --name chartjs-vue-component ./src/index.ts  && rm ./dist/demo.html"
   },
   "dependencies": {
     "lodash.clonedeep": "^4.5.0",
@@ -105,6 +105,8 @@
     "transform": {
       "^.+\\.vue$": "vue-jest"
     },
-    "setupFiles": ["jest-canvas-mock"]
+    "setupFiles": [
+      "jest-canvas-mock"
+    ]
   }
 }
