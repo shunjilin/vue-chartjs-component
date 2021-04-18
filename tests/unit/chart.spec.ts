@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import ChartComponent from "../../src/index.vue";
+import ChartComponent from "../../src/index";
 import { Chart as Chartjs } from "chart.js";
 import { ref } from "@vue/reactivity";
 

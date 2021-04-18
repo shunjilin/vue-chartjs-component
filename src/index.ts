@@ -1,11 +1,14 @@
-<template>
-  <canvas ref="canvas" :width="width" :height="height" />
-</template>
-
-<script lang="ts">
-import { ref, defineComponent, PropType, onMounted, watch } from "vue-demi";
+import {
+  ref,
+  defineComponent,
+  PropType,
+  onMounted,
+  watch,
+  h,
+  CanvasHTMLAttributes,
+} from "vue-demi";
 import { Chart as Chartjs } from "chart.js";
-import type { ChartType, ChartData, ChartOptions } from "chart.js";
+import type { ChartType, ChartData, ChartOptions, UpdateMode } from "chart.js";
 import cloneDeep from "lodash.clonedeep";
 
 export default defineComponent({
@@ -22,13 +25,13 @@ export default defineComponent({
     options: {
       type: Object as PropType<ChartOptions>,
     },
-    height: {
-      type: String,
-      default: "100%",
+    updateMode: {
+      type: String as PropType<UpdateMode | undefined>,
+      default: undefined,
     },
-    width: {
-      type: String,
-      default: "100%",
+    canvasProps: {
+      type: Object as PropType<CanvasHTMLAttributes>,
+      default: () => {},
     },
   },
   setup(props) {
@@ -48,21 +51,26 @@ export default defineComponent({
 
     watch(
       () => cloneDeep(props),
-      async (newProps) => {
+      (newProps) => {
         if (chart) {
           const { data, options } = newProps;
           chart.data = data;
           if (options) {
             chart.options = options;
           }
-          chart.update();
+          chart.update(props.updateMode);
         }
       }
     );
 
     return {
-      canvas: canvas,
+      canvas,
     };
   },
+  render() {
+    return h("canvas", {
+      ...this.canvasProps,
+      ref: "canvas",
+    });
+  },
 });
-</script>

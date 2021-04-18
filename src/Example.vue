@@ -1,14 +1,22 @@
 <template>
-  <button @click="onClick">Randomize</button>
-  <div style="width: 100vw; height: 100vh">
-    <chart-component type="bar" :data="data" :options="options" />
+  <button @click="handleRandomizeClick">Randomize</button>
+  <div style="height: 50vh; width: 50vw">
+    <chart-component
+      type="bar"
+      :data="data"
+      :options="options"
+      :canvasProps="{
+        id: `my-chart`,
+      }"
+      updateMode="active"
+    />
   </div>
 </template>
 
 <script lang="ts">
 import { Chart, ChartData, ChartOptions, registerables } from "chart.js";
-import { defineComponent, Ref, ref } from "vue";
-import ChartComponent from "./index.vue";
+import { defineComponent, onMounted, Ref, ref } from "vue";
+import ChartComponent from "./index";
 
 // register all controllers, elements, scales and plugins
 // To register only necessary components, see: https://www.chartjs.org/docs/master/getting-started/integration.html#bundlers-webpack-rollup-etc
@@ -20,6 +28,13 @@ export default defineComponent({
     ChartComponent,
   },
   setup() {
+    const myChart = ref<undefined | Chart>(undefined);
+
+    onMounted(() => {
+      // retrieve Chart instance from canvas id
+      myChart.value = Chart.getChart("my-chart");
+    });
+
     const backgroundColor = [
       "rgba(255, 99, 132, 0.2)",
       "rgba(54, 162, 235, 0.2)",
@@ -65,9 +80,12 @@ export default defineComponent({
           beginAtZero: true,
         },
       },
+      onClick: () => {
+        console.log(myChart.value?.getActiveElements());
+      },
     });
 
-    const onClick = () => {
+    const handleRandomizeClick = () => {
       data.value.datasets = [
         {
           label: "# of Votes",
@@ -84,7 +102,7 @@ export default defineComponent({
     return {
       data,
       options,
-      onClick,
+      handleRandomizeClick,
     };
   },
 });
