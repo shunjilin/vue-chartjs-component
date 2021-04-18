@@ -1,6 +1,6 @@
 {
   "name": "vue-chartjs-component",
-  "version": "0.2.7",
+  "version": "0.3.2",
   "author": "Shunji Lin",
   "license": "MIT",
   "description": "chartjs wrapper for Vue 2/3",
@@ -15,26 +15,26 @@
     "wrapper",
     "composition api"
   ],
-  "main": "dist/vue-chartjs-component.umd.js",
+  "main": "./dist/index.umd.js",
+  "module": "./dist/index.esm.js",
+  "unpkg": "./dist/index.min.js",
+  "types": "./dist/index.d.ts",
   "files": [
-    "dist/vue-chartjs-component.umd.js",
-    "dist/vue-chartjs-component.umd.map",
-    "dist/vue-chartjs-component.umd.min.js",
-    "src/index.vue",
+    "dist",
+    "src",
     "package.json",
-    "README.md",
-    "index.d.ts"
+    "README.md"
   ],
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build-package": "rimraf dist && rollup -c",
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint",
-    "build-package": "vue-cli-service build --mode production --target lib --name vue-chartjs-component ./src/index.vue  && rm ./dist/demo.html"
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "lodash.clonedeep": "^4.5.0",
-    "vue-demi": "latest"
+    "rollup-plugin-dts": "^3.0.1",
+    "vue-demi": "^0.7.5"
   },
   "peerDependencies": {
     "@vue/composition-api": "^1.0.0-beta.1",
@@ -47,6 +47,9 @@
     }
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^18.0.0",
+    "@rollup/plugin-node-resolve": "^11.2.1",
+    "@rollup/plugin-replace": "^2.4.2",
     "@types/jest": "^24.0.19",
     "@types/lodash.clonedeep": "^4.5.6",
     "@types/node": "^14.14.37",
@@ -61,15 +64,20 @@
     "@vue/eslint-config-prettier": "^6.0.0",
     "@vue/eslint-config-typescript": "^7.0.0",
     "@vue/test-utils": "^2.0.0-rc.4",
-    "chart.js": "^3.0.2",
+    "chart.js": "^3.1.1",
+    "esbuild": "^0.11.12",
     "eslint": "^6.7.2",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-vue": "^7.0.0",
     "jest-canvas-mock": "^2.3.1",
     "prettier": "^2.2.1",
+    "rollup": "^2.45.2",
+    "rollup-plugin-esbuild": "^4.0.1",
+    "rollup-plugin-vue": "^6.0.0",
     "typescript": "~4.1.5",
     "vue": "^3.0.0",
-    "vue-jest": "^5.0.0-alpha.8"
+    "vue-jest": "^5.0.0-alpha.8",
+    "vue-template-compiler": "^2.6.12"
   },
   "eslintConfig": {
     "root": true,
