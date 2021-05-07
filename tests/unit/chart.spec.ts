@@ -59,6 +59,7 @@ const DEFAULT_PROPS = {
     },
   },
   type: "bar" as const,
+  plugins: [],
 };
 
 describe("HelloWorld.vue", () => {
